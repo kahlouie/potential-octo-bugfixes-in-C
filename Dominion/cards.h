@@ -1,3 +1,5 @@
+#pragma once
+
 struct TreasureCard {
 	int value;
 };
@@ -6,60 +8,54 @@ struct VictoryCard {
 	int points;
 };
 
+struct ActionCard {
+	int cards;
+	int actions;
+	int buys;
+	int moola;
+	char* description;
+};
+
 struct Card {
 	char* name;
 	int cost;
 	struct TreasureCard* treasure;
 	struct VictoryCard* victorypoints;
+	struct ActionCard* action;
 };
 
-struct TreasureCard CopperValue = {
-	1
-};
+extern struct Card COPPER;
 
-struct Card Copper = {
-	"copper", 0, &CopperValue, NULL
-};
+extern struct Card SILVER;
 
-struct TreasureCard SilverValue = {
-	2
-};
+extern struct Card GOLD;
 
-struct Card Silver = {
-	"silver", 3, &SilverValue, NULL
-};
+extern struct Card ESTATE;
 
-struct TreasureCard GoldValue = {
-	3
-};
+extern struct Card DUCHY;
 
-struct Card Gold = {
-	"gold", 6, &GoldValue, NULL
-};
+extern struct Card PROVINCE;
 
-struct VictoryCard EstatePoints = {
-	1
-};
+extern struct Card MOAT;
 
-struct Card Estate = {
-	"estate", 2, NULL, &EstatePoints
-};
+extern struct Card CELLAR;
 
-struct VictoryCard DuchyPoints = {
-	3
-};
+extern struct Card VILLAGE;
 
-struct Card Duchy = {
-	"duchy", 5, NULL, &DuchyPoints
-};
+extern struct Card WOODCUTTER;
 
-struct VictoryCard ProvincePoints = {
-	6
-};
+extern struct Card WORKSHOP;
 
-struct Card Province = {
-	"province", 0, NULL, &ProvincePoints
-};
+extern struct Card MILITIA;
+
+extern struct Card REMODEL;
+
+extern struct Card SMITHY;
+
+extern struct Card MARKET;
+
+extern struct Card MINE;
+
 
 struct CardSet {
 	int size;
