@@ -29,3 +29,16 @@ void printCardSet(struct CardSet* cs) {
 		printf("%s\n", cs->cards[i].name);
 	}
 }
+
+void cardSetRemoveCard(struct CardSet* cs, struct Card oldCard){
+	int i = 0;
+	while (cs->cards[i].name != oldCard.name && i < cs->size) {
+		i++;
+	}
+	while (i < cs->size - 1) {
+		cs->cards[i] = cs->cards[i + 1];
+		i++;
+	}
+	cs->size--;
+	cs->cards = realloc(cs->cards, sizeof (struct Card) * cs->size);
+}
