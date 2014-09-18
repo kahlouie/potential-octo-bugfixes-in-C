@@ -8,7 +8,7 @@ void cardSetInit(struct CardSet* cs) {
 }
 
 void cardSetFree(struct CardSet* cs) {
-	free(cs);
+	free(cs->cards);
 }
 
 void cardSetAddCard(struct CardSet* cs, struct Card newCard) {
