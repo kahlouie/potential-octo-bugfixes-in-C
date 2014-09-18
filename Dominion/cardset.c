@@ -7,6 +7,10 @@ void cardSetInit(struct CardSet* cs) {
 	cs->cards = NULL;
 }
 
+void cardSetFree(struct CardSet* cs) {
+	free(cs);
+}
+
 void cardSetAddCard(struct CardSet* cs, struct Card newCard) {
 	cs->size++;
 	cs->cards = realloc(cs->cards, sizeof (struct Card) * cs->size);
