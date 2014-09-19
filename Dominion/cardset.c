@@ -32,7 +32,7 @@ void startDeck(struct CardSet* cs) {
 void shuffleCardSet(struct CardSet* cs){
 	for (int i = 0; i < cs->size; i++) {
 		int shuffled = i;
-		int randomnumber = usefulrandomnumber(cs->size, shuffled);
+		int randomnumber = usefulRandomNumber(cs->size, shuffled);
 		struct Card placeholder = cs->cards[randomnumber];
 		cs->cards[randomnumber] = cs->cards[i];
 		cs->cards[i] = placeholder;
