@@ -6,6 +6,8 @@ void cardSetFree(struct CardSet* cs);
 
 void cardSetAddCard(struct CardSet* cs, struct Card newCard);
 
+void shuffleCardSet(struct CardSet* cs);
+
 void startDeck(struct CardSet* cs);
 
 void printCardSet(struct CardSet* cs);

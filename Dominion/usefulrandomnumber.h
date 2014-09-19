@@ -1,0 +1,1 @@
+int usefulRandomNumber(int cslength, int shuffled);
