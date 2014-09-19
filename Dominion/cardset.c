@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cards.h"
+#include "cardset.h"
 #include "usefulrandomnumber.h"
 
 void cardSetInit(struct CardSet* cs) {
@@ -18,6 +19,16 @@ void cardSetAddCard(struct CardSet* cs, struct Card newCard) {
 	cs->cards[cs->size - 1] = newCard;
 }
 
+void shuffleCardSet(struct CardSet* cs){
+	for (int i = 0; i < cs->size; i++) {
+		int shuffled = i;
+		int randomnumber = usefulRandomNumber(cs->size, shuffled);
+		struct Card placeholder = cs->cards[randomnumber];
+		cs->cards[randomnumber] = cs->cards[i];
+		cs->cards[i] = placeholder;
+	}
+}
+
 void startDeck(struct CardSet* cs) {
 	cardSetInit(cs);
 	for (int i = 0; i < 10; i++) {
@@ -27,17 +38,7 @@ void startDeck(struct CardSet* cs) {
 			cardSetAddCard(cs, ESTATE);
 		}
 	}
-}
-
-void shuffleCardSet(struct CardSet* cs){
-	for (int i = 0; i < cs->size; i++) {
-		int shuffled = i;
-		int randomnumber = usefulRandomNumber(cs->size, shuffled);
-		struct Card placeholder = cs->cards[randomnumber];
-		cs->cards[randomnumber] = cs->cards[i];
-		cs->cards[i] = placeholder;
-		// free(placeholder*);
-	}
+	shuffleCardSet(cs);
 }
 
 void printCardSet(struct CardSet* cs) {

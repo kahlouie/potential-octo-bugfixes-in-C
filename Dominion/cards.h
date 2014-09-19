@@ -55,9 +55,3 @@ extern struct Card SMITHY;
 extern struct Card MARKET;
 
 extern struct Card MINE;
-
-
-struct CardSet {
-	int size;
-	struct Card* cards;
-};

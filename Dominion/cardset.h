@@ -1,4 +1,10 @@
+#pragma once
 #include "cards.h"
+
+struct CardSet {
+  int size;
+  struct Card* cards;
+};
 
 void cardSetInit(struct CardSet* cs);
 

@@ -4,21 +4,23 @@
 #include "cardset.h"
 #include "cards.h"
 #include "board.h"
+#include "playerstuff.h"
 
 void setup() {
   time_t t;
   // Intializes random number generator
   srand((unsigned) time(&t));
-	struct CardSet deck;
-	startDeck(&deck);
-	struct Board board;
-	initializepiles(&board);
-  printCardSet(&deck);
-  printf("Shuffling...\n");
-  shuffleCardSet(&deck);
-  printf("Shuffled?\n");
-  printCardSet(&deck);
-  // printf("\n");
+  struct Board board;
+  initializepiles(&board);
+  struct Stuff p1stuff;
+	struct Player p1 = {
+    "player1", false, &p1stuff
+  };
+  playerStuffInit(&p1);
+  printf("Deck:\n");
+  printCardSet(&p1.stuff->deck);
+  printf("\nHand:\n");
+  printCardSet(&p1.stuff->hand);
 }
 
 int main() {
