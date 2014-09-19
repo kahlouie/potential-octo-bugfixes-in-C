@@ -9,6 +9,12 @@ void setup() {
 	startDeck(&deck);
 	struct Board board;
 	initializepiles(&board);
+  printCardSet(&deck);
+  printf("Shuffling...\n");
+  shuffleCardSet(&deck);
+  printf("Shuffled?\n");
+  printCardSet(&deck);
+  // printf("\n");
 }
 
 int main() {
